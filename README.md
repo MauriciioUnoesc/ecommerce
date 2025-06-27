@@ -19,7 +19,7 @@ API RESTful para um sistema de ecommerce simples, permitindo gerenciamento de pr
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/felipescht709/ecommerce.git
+git clone [https://github.com/MauriciioUnoesc/ecommerce.git](https://github.com/MauriciioUnoesc/ecommerce.git)
 cd ecommerce
 Instale as dependências:
 
