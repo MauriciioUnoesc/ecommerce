@@ -1,6 +1,6 @@
 # 📦 Loja Virtual - API de Cadastro de Produtos
 
-API RESTful para gerenciamento de produtos, categorias e avaliações em uma loja virtual.  
+API REST para gerenciamento de produtos, categorias e avaliações em uma loja virtual.  
 Inclui autenticação de usuários e integração com fornecedor externo.
 
 ---
