@@ -33,7 +33,12 @@ exports.login = async (req, res) => {
             { expiresIn: authConfig.jwtExpiresIn }
         );
 
-        res.json({ token, isAdmin: usuario.isAdmin, nomeUsuario: usuario.nomeUsuario });
+        res.json({
+  token,
+  isAdmin: usuario.isAdmin,
+  nomeUsuario: usuario.nomeUsuario,
+  idUsuario: usuario.idUsuario // <-- deve estar aqui
+});
 
     } catch (error) {
         console.error('Erro no login:', error);

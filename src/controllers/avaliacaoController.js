@@ -109,6 +109,31 @@ exports.listarAvaliacoesProduto = async (req, res) => {
     }
 };
 
+// GET /api/avaliacoes/produto/:idProduto/minha
+exports.buscarMinhaAvaliacao = async (req, res) => {
+  const { idProduto } = req.params;
+  const idUsuario = req.usuario.id;
+
+  try {
+    const avaliacao = await Avaliacao.findOne({
+      where: {
+        idProduto,
+        idUsuario,
+      },
+    });
+
+    if (!avaliacao) {
+      return res.status(404).json({ message: 'Nenhuma avaliação encontrada.' });
+    }
+
+    res.json(avaliacao);
+  } catch (error) {
+    console.error('Erro ao buscar avaliação:', error);
+    res.status(500).json({ message: 'Erro interno do servidor.' });
+  }
+};
+
+
 exports.editarAvaliacao = async (req, res) => {
     const { id } = req.params; // ID da avaliação
     const { nota, comentario } = req.body;

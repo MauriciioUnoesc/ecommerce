@@ -153,18 +153,19 @@ exports.desativarProduto = async (req, res) => {
         return res.status(400).json({ message: 'ID do produto inválido.' });
     }
 
-    try {
+    try { 
         // Chama a stored procedure
         await sequelize.query(
-            'CALL sp_desativar_produto(:p_id_produto, :p_id_usuario_responsavel)',
-            {
-                replacements: {
-                    p_id_produto: id,
-                    p_id_usuario_responsavel: idUsuarioAdmin
-                },
-                type: sequelize.QueryTypes.RAW // RAW para SPs que não retornam um SELECT
-            }
-        );
+  'CALL sp_desativar_produto(:p_id_produto, :p_id_usuario_responsavel)',
+  {
+    replacements: {
+      p_id_produto: parseInt(id),
+      p_id_usuario_responsavel: parseInt(idUsuarioAdmin),
+    },
+    type: sequelize.QueryTypes.RAW,
+  }
+);
+
 
         // A stored procedure já lida com a lógica de verificação e log de auditoria
         res.json({ message: 'Produto desativado com sucesso (exclusão lógica).' });

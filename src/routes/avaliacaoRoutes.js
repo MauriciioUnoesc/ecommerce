@@ -10,6 +10,8 @@ router.post('/:id/avaliacoes', autenticarToken, avaliacaoController.registrarAva
 // Rota para listar avaliações de um produto específico (pode ser pública)
 router.get('/:id/avaliacoes', avaliacaoController.listarAvaliacoesProduto);
 
+router.get("/produto/:idProduto/minha", autenticarToken, avaliacaoController.buscarMinhaAvaliacao);
+
 // Rota para editar uma avaliação específica (autenticado e deve ser o autor)
 router.put('/:id', autenticarToken, avaliacaoController.editarAvaliacao);
 
